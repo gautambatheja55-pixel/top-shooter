@@ -5,7 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
 size = Vector2(66, 19)
 
-[node name="Bullet" type="RigidBody2D" unique_id=1334396329]
+[node name="Bullet" type="RigidBody2D" unique_id=1334396329 groups=["bullet"]]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905835583]
 position = Vector2(-1, -0.5)
