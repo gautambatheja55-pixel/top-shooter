@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bemea5l33ar7b"]
+
+[ext_resource type="Script" uid="uid://dxqbkuu02ceve" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://2r7c21c5kv0x" path="res://player/images.png" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(105, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
+size = Vector2(133, 122)
+
+[node name="enemy" type="CharacterBody2D" unique_id=1248482935]
+script = ExtResource("1_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920440817]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1137636658]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=284465317]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_7k104")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979811385]
+modulate = Color(0.7266869, 0.2544929, 0.27472997, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7k104")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
