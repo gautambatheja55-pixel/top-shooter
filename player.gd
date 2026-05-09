@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var movespeed=500
 var bulletspeed=2000
-var has_key = false 
+var has_key: bool = false 
 var bullet = preload("res://bullet.tscn")
 func _ready() -> void:
 	pass
@@ -38,3 +38,8 @@ func kill():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "enemy" in body.name:
 		kill()
+
+
+func _on_key_body_entered(body: Node2D) -> void:
+	body.has_key=true
+	queue_free()

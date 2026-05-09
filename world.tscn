@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://btwj3l6vrmltx" path="res://player/spotlight.png" id="3_036b0"]
 [ext_resource type="PackedScene" uid="uid://bemea5l33ar7b" path="res://enemy.tscn" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://dvq63g7ux8nv8" path="res://line_2d.gd" id="5_036b0"]
+[ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(67, 64)
@@ -12,9 +13,15 @@ size = Vector2(67, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(95, 88)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
+radius = 257.38104
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
+size = Vector2(79, 601)
+
 [node name="world" type="Node2D" unique_id=948228125]
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=809423421]
+[node name="player" type="CharacterBody2D" parent="." unique_id=809423421 groups=["player_group"]]
 position = Vector2(127, 120)
 script = ExtResource("1_fj7yv")
 
@@ -59,7 +66,6 @@ scale = Vector2(40.54667, 27.035553)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -77,6 +83,8 @@ script = ExtResource("5_036b0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D/StaticBody2D" unique_id=1100027915]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D" unique_id=68272931]
+
 [node name="Line2D6" type="Line2D" parent="Walls" unique_id=1624601903]
 position = Vector2(-942, 1989)
 points = PackedVector2Array(-122, -1815, -105, -1047, -1623, -1082, -1606, 1763, 6194.4063, 1777.6709, 6194, 1274)
@@ -90,6 +98,8 @@ script = ExtResource("5_036b0")
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D6" unique_id=1410414671]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D6/StaticBody2D" unique_id=999551364]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D6" unique_id=681607198]
 
 [node name="Line2D5" type="Line2D" parent="Walls" unique_id=2108733083]
 position = Vector2(3333, 2286)
@@ -105,6 +115,8 @@ script = ExtResource("5_036b0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D5/StaticBody2D" unique_id=1250157952]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D5" unique_id=1666705301]
+
 [node name="Line2D4" type="Line2D" parent="Walls" unique_id=311583434]
 position = Vector2(366, -942)
 points = PackedVector2Array(-1203, 384, -1622, 436, -1500, 157, -872, 35, 3298, 104, 4153, 384, 4782, 1291, 3927, 1745)
@@ -118,6 +130,8 @@ script = ExtResource("5_036b0")
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D4" unique_id=1073669580]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D4/StaticBody2D" unique_id=1988629742]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D4" unique_id=929289303]
 
 [node name="Line2D2" type="Line2D" parent="Walls" unique_id=972353589]
 position = Vector2(2492, 138)
@@ -133,9 +147,11 @@ script = ExtResource("5_036b0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D2/StaticBody2D" unique_id=1690843801]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D2" unique_id=1809814266]
+
 [node name="Line2D3" type="Line2D" parent="Walls" unique_id=338853053]
 position = Vector2(-1103, -99)
-points = PackedVector2Array(108, 273, -991, -93, -1130, -1035, -415, -1471, 2070, -1660, 4896, -1631, 6590, -1049, 7141, 413, 7472, 1931, 7210, 2804, 6338, 3345)
+points = PackedVector2Array(10, 253, -991, -93, -1130, -1035, -415, -1471, 2070, -1660, 4896, -1631, 6590, -1049, 7141, 413, 7472, 1931, 7210, 2804, 6338, 3345)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -144,7 +160,28 @@ end_cap_mode = 2
 script = ExtResource("5_036b0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D3" unique_id=1278686255]
+position = Vector2(-502, 197)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D3/StaticBody2D" unique_id=2114204827]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D3" unique_id=815160025]
+
+[node name="Key" type="Area2D" parent="." unique_id=1437032686]
+script = ExtResource("6_pkg7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1192783416]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1370139688]
+position = Vector2(-552, 1162)
+shape = SubResource("CircleShape2D_dwbse")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=241765504]
+
+[node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D" unique_id=1440174313]
+position = Vector2(-1073.5, -206.5)
+shape = SubResource("RectangleShape2D_dwbse")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=543359799]
+
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
