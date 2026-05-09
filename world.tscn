@@ -59,9 +59,6 @@ texture = ExtResource("3_036b0")
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("3_tlwt5")]
 position = Vector2(-589, -280)
 
-[node name="enemy3" parent="." unique_id=1914612254 instance=ExtResource("3_tlwt5")]
-position = Vector2(-589, -280)
-
 [node name="enemy2" parent="." unique_id=1231066608 instance=ExtResource("3_tlwt5")]
 position = Vector2(2001, 981)
 
@@ -73,6 +70,7 @@ scale = Vector2(40.54667, 27.035553)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -177,6 +175,7 @@ position = Vector2(-502, 197)
 script = ExtResource("6_pkg7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1192783416]
+position = Vector2(-562, 1163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1370139688]
 position = Vector2(-552, 1162)
