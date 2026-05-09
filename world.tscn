@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bemea5l33ar7b" path="res://enemy.tscn" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://dvq63g7ux8nv8" path="res://line_2d.gd" id="5_036b0"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
+[ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(67, 64)
@@ -18,6 +19,9 @@ radius = 257.38104
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
 size = Vector2(79, 601)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbfbk"]
+size = Vector2(295.5, 808)
 
 [node name="world" type="Node2D" unique_id=948228125]
 
@@ -53,6 +57,9 @@ shadow_enabled = true
 texture = ExtResource("3_036b0")
 
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("3_tlwt5")]
+position = Vector2(-589, -280)
+
+[node name="enemy3" parent="." unique_id=1914612254 instance=ExtResource("3_tlwt5")]
 position = Vector2(-589, -280)
 
 [node name="enemy2" parent="." unique_id=1231066608 instance=ExtResource("3_tlwt5")]
@@ -119,7 +126,7 @@ script = ExtResource("5_036b0")
 
 [node name="Line2D4" type="Line2D" parent="Walls" unique_id=311583434]
 position = Vector2(366, -942)
-points = PackedVector2Array(-1203, 384, -1622, 436, -1500, 157, -872, 35, 3298, 104, 4153, 384, 4782, 1291, 3927, 1745)
+points = PackedVector2Array(-1139, 393, -1622, 436, -1500, 157, -872, 35, 3298, 104, 4153, 384, 4782, 1291, 3927, 1745)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -176,6 +183,7 @@ position = Vector2(-552, 1162)
 shape = SubResource("CircleShape2D_dwbse")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=241765504]
+script = ExtResource("7_pkg7o")
 
 [node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D" unique_id=1440174313]
 position = Vector2(-1073.5, -206.5)
@@ -183,5 +191,25 @@ shape = SubResource("RectangleShape2D_dwbse")
 
 [node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=543359799]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=842077470]
+position = Vector2(-1074, -162)
+shape = SubResource("RectangleShape2D_gbfbk")
+
+[node name="Door_image" type="Line2D" parent="StaticBody2D" unique_id=865201923]
+points = PackedVector2Array(-1073, 113, -1031, 38, -1084, -22, -1030.4838, -88.244385, -1078, -151, -1031, -220, -1087, -276, -1031, -311, -1090, -386, -1043, -446, -1043, -499, -1049, -508)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D/Door_image" unique_id=1453216659]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D/Door_image/StaticBody2D" unique_id=1724979077]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/Door_image" unique_id=450030836]
+
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
