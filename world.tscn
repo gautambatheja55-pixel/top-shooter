@@ -21,7 +21,7 @@ radius = 257.38104
 size = Vector2(79, 601)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbfbk"]
-size = Vector2(295.5, 808)
+size = Vector2(295.5, 730)
 
 [node name="world" type="Node2D" unique_id=948228125]
 
@@ -165,7 +165,7 @@ end_cap_mode = 2
 script = ExtResource("5_036b0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D3" unique_id=1278686255]
-position = Vector2(-502, 197)
+position = Vector2(82, 88)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D3/StaticBody2D" unique_id=2114204827]
 
@@ -209,6 +209,75 @@ script = ExtResource("5_036b0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/Door_image" unique_id=450030836]
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=592513264]
+position = Vector2(5959, 3399)
+script = ExtResource("7_pkg7o")
+
+[node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D2" unique_id=401515427]
+position = Vector2(-954, -288)
+rotation = -0.84974384
+shape = SubResource("RectangleShape2D_dwbse")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2" unique_id=321121305]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=655872950]
+position = Vector2(-898, -311)
+rotation = 2.3011737
+shape = SubResource("RectangleShape2D_gbfbk")
+
+[node name="Door_image" type="Line2D" parent="StaticBody2D2" unique_id=426412978]
+position = Vector2(215.99988, 28)
+scale = Vector2(1.2638901, 1.0365407)
+points = PackedVector2Array(-749.2739, -184.26685, -788.834, -192.94946, -780.9219, -277.84717, -852.9219, -238.29248, -855.29565, -344.4148, -920.17456, -296.1775, -920.17456, -398.44067, -987.42725, -358.886, -967.6472, -437.99536, -1031.7349, -422.55933, -1014.32837, -507.45703, -1049, -508)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D2/Door_image" unique_id=1106660847]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2/Door_image/StaticBody2D" unique_id=251138586]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D2/Door_image" unique_id=341392565]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1198748677]
+position = Vector2(5069, 1357)
+script = ExtResource("7_pkg7o")
+
+[node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D3" unique_id=818035731]
+position = Vector2(-819, -307)
+rotation = -0.18644962
+shape = SubResource("RectangleShape2D_dwbse")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D3" unique_id=943438329]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/Area2D" unique_id=1915186688]
+position = Vector2(-726, -305)
+rotation = 2.9326313
+shape = SubResource("RectangleShape2D_gbfbk")
+
+[node name="Door_image" type="Line2D" parent="StaticBody2D3" unique_id=279506055]
+position = Vector2(554.9999, -21.999996)
+rotation = -0.019061944
+scale = Vector2(1.2638901, 1.0365407)
+points = PackedVector2Array(-938.2461, -120.2323, -1002.78174, -142.9607, -944.98047, -195.65271, -1016.7258, -212.75916, -953.1914, -277.86206, -1028.2974, -282.5027, -969.59937, -341.92834, -1041.2544, -364.82227, -989.63965, -418.10278, -1045.3291, -458.51453, -982.2168, -496.60925, -1048.7937, -540.61346)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D3/Door_image" unique_id=1059617462]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3/Door_image/StaticBody2D" unique_id=2139735769]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D3/Door_image" unique_id=402978887]
+
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="StaticBody2D3/Area2D" to="StaticBody2D3" method="_on_area_2d_body_entered"]
