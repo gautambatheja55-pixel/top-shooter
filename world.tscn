@@ -7,12 +7,19 @@
 [ext_resource type="Script" uid="uid://dvq63g7ux8nv8" path="res://line_2d.gd" id="5_036b0"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
+[ext_resource type="Script" uid="uid://l3igyf3cvc1o" path="res://canvas_layer.gd" id="8_gbfbk"]
+[ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(67, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(95, 88)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wse8f"]
+font = ExtResource("9_ioo17")
+font_size = 60
+font_color = Color(0.70380783, 0.70380783, 0.70380783, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
 radius = 257.38104
@@ -49,6 +56,28 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=746254176]
+script = ExtResource("8_gbfbk")
+
+[node name="TimeLabel" type="Label" parent="player/Camera2D/CanvasLayer" unique_id=1841707763]
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.5
+anchor_right = 0.063
+anchor_bottom = 0.5
+offset_left = -61.576004
+offset_top = -352.0
+offset_right = 1108.424
+offset_bottom = 301.0
+label_settings = SubResource("LabelSettings_wse8f")
+vertical_alignment = 2
+
+[node name="GameTimer" type="Timer" parent="player/Camera2D/CanvasLayer" unique_id=1232525609]
+wait_time = 300.0
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
 scale = Vector2(14.050001, 13.860002)
@@ -70,7 +99,6 @@ scale = Vector2(40.54667, 27.035553)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
