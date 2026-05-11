@@ -7,11 +7,7 @@ extends StaticBody2D
 var current_temp :float = 800.0
 const MELT_POINT :float = 2800.0 
 var rods_inserted :int = 0
-var base_heat_rate :float = 25.0
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var base_heat_rate :float = 30.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
