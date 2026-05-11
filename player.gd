@@ -2,6 +2,7 @@ extends CharacterBody2D
 var movespeed=500
 var bulletspeed=2000
 var has_key: bool = false 
+var has_boron_rod:bool = false
 var bullet = preload("res://bullet.tscn")
 func _ready() -> void:
 	pass
