@@ -90,6 +90,10 @@ rotation = 0.017413385
 text = "hii"
 label_settings = SubResource("LabelSettings_k3n1d")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1470600627]
+offset_right = 308.0
+offset_bottom = 311.0
+
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
 scale = Vector2(14.050001, 13.860002)
@@ -111,6 +115,7 @@ scale = Vector2(40.54667, 27.035553)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
