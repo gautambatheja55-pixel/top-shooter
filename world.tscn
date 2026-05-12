@@ -90,9 +90,13 @@ rotation = 0.017413385
 text = "hii"
 label_settings = SubResource("LabelSettings_k3n1d")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1470600627]
-offset_right = 308.0
-offset_bottom = 311.0
+[node name="ProgressBar" type="ProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1389113875]
+visible = false
+offset_left = 21.0
+offset_top = 29.0
+offset_right = 322.0
+offset_bottom = 486.0
+fill_mode = 3
 
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
@@ -110,7 +114,7 @@ position = Vector2(2001, 981)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7068722, 0.254786, 0.30000812, 1)
 show_behind_parent = true
-position = Vector2(1960.5001, 767.5)
+position = Vector2(1601, 596)
 scale = Vector2(40.54667, 27.035553)
 texture = ExtResource("1_f3sb7")
 
