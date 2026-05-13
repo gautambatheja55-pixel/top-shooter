@@ -92,6 +92,7 @@ label_settings = SubResource("LabelSettings_k3n1d")
 
 [node name="ProgressBar" type="ProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1389113875]
 visible = false
+modulate = Color(0.43595254, 0.7093098, 0.75891054, 1)
 offset_left = 21.0
 offset_top = 29.0
 offset_right = 322.0

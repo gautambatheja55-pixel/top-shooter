@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var TimerLabel: Label = $"../player/Camera2D/CanvasLayer/TimerLabel"
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $"../player/Camera2D/CanvasLayer/ProgressBar"
+@onready var camera_2d: Camera2D = $"../player/Camera2D"
 
 
 #variables
@@ -15,7 +16,7 @@ var player_ref: Node2D = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var current_heat_rate=base_heat_rate * (1.0 - (rods_inserted*0.4))
-	
+	var shake_intensity= max(0,current_temp-2000)/800
 	if current_temp<MELT_POINT:
 		current_temp+=current_heat_rate*delta
 		
@@ -29,6 +30,18 @@ func _process(delta: float) -> void:
 	if timer.time_left>0:	
 		progress_bar.visible=true
 		progress_bar.value= (timer.wait_time - timer.time_left)/timer.wait_time * 100
+	
+	if shake_intensity>0 and shake_intensity<0.5:
+		var shake_x=randf_range(-2,2)
+		var shake_y=randf_range(-2,2)
+		camera_2d.offset=Vector2(shake_x,shake_y)
+	elif shake_intensity>0.5:
+		var shake_x=randf_range(-6,6)
+		var shake_y=randf_range(-6,6)
+		camera_2d.offset=Vector2(shake_x,shake_y)
+	else:
+		camera_2d.offset=Vector2.ZERO
+
 
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:
