@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
+[ext_resource type="AudioStream" uid="uid://b1i8ikwc12ydb" path="res://radioilluminati-radio-illuminati-nuclear-alarm-124010.mp3" id="11_2o6r5"]
 [ext_resource type="Script" uid="uid://fpmapluwajr8" path="res://boron_rod.gd" id="12_2o6r5"]
 [ext_resource type="Texture2D" uid="uid://dln8wm0731ddi" path="res://Boron.png" id="13_70uel"]
 
@@ -105,6 +106,11 @@ scale = Vector2(14.050001, 13.860002)
 color = Color(0.59513444, 0.22265193, 0.21193779, 1)
 shadow_enabled = true
 texture = ExtResource("3_036b0")
+
+[node name="Bg" type="AudioStreamPlayer2D" parent="player" unique_id=2055380315]
+stream = ExtResource("11_2o6r5")
+volume_db = -19.44
+autoplay = true
 
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("3_tlwt5")]
 position = Vector2(-589, -280)

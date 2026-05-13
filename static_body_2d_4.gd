@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		TimerLabel.text="EST. TIME TO MELTDOWN: "+str(int(seconds_until_meltdown)) + "s"
 	else:
 		TimerLabel.text="REACTION STABILIZED"
-		
+	
 	if timer.time_left>0:	
 		progress_bar.visible=true
 		progress_bar.value= (timer.wait_time - timer.time_left)/timer.wait_time * 100
