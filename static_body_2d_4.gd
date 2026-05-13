@@ -4,6 +4,8 @@ extends StaticBody2D
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $"../player/Camera2D/CanvasLayer/ProgressBar"
 @onready var camera_2d: Camera2D = $"../player/Camera2D"
+@onready var alarm: AudioStreamPlayer2D = $"../player/Alarm"
+@onready var bg: AudioStreamPlayer2D = $"../player/Bg"
 
 
 #variables
@@ -41,7 +43,14 @@ func _process(delta: float) -> void:
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	else:
 		camera_2d.offset=Vector2.ZERO
-
+	if current_temp>=2400:
+		if not alarm.playing:
+			alarm.play()
+	else:
+		if alarm.playing:
+			alarm.stop()
+		if not bg.playing:
+			bg.play()
 
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:
