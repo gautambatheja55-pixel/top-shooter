@@ -6,7 +6,7 @@ extends StaticBody2D
 @onready var camera_2d: Camera2D = $"../player/Camera2D"
 @onready var alarm: AudioStreamPlayer2D = $"../player/Alarm"
 @onready var bg: AudioStreamPlayer2D = $"../player/Bg"
-
+@onready var danger_glow: Panel = $"../player/Camera2D/CanvasLayer/DangerGlow"
 
 #variables
 var current_temp :float = 800.0
@@ -38,20 +38,28 @@ func _process(delta: float) -> void:
 		var shake_y=randf_range(-2,2)
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	elif shake_intensity>0.5:
-		var shake_x=randf_range(-6,6)
-		var shake_y=randf_range(-6,6)
+		var shake_x=randf_range(-15,15)
+		var shake_y=randf_range(-15,15)
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	else:
 		camera_2d.offset=Vector2.ZERO
 	if current_temp>=2400:
 		if not alarm.playing:
 			alarm.play()
+		if bg.playing:
+			bg.stop()
+			
+		danger_glow.visible = true
+		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
+		danger_glow.self_modulate.a=pulse
+		
 	else:
 		if alarm.playing:
 			alarm.stop()
 		if not bg.playing:
 			bg.play()
-
+		danger_glow.visible=false
+		
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:
 		player_ref=body

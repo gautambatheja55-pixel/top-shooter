@@ -29,6 +29,15 @@ font_size = 30
 font = ExtResource("9_ioo17")
 font_size = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70uel"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.86915, 0.24872258, 0.24919754, 1)
+border_blend = true
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
 radius = 257.38104
 
@@ -101,6 +110,15 @@ offset_right = 322.0
 offset_bottom = 486.0
 fill_mode = 3
 
+[node name="DangerGlow" type="Panel" parent="player/Camera2D/CanvasLayer" unique_id=530833083]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_70uel")
+
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
 scale = Vector2(14.050001, 13.860002)
@@ -123,10 +141,10 @@ position = Vector2(-589, -280)
 position = Vector2(2001, 981)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
-modulate = Color(0.7068722, 0.254786, 0.30000812, 1)
+modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
 show_behind_parent = true
-position = Vector2(1601, 596)
-scale = Vector2(40.54667, 27.035553)
+position = Vector2(1775.2496, 770.2501)
+scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
