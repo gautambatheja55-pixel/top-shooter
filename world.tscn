@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://2r7c21c5kv0x" path="res://player/images.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://3i2elmiaqk0p" path="res://player.gd" id="1_fj7yv"]
+[ext_resource type="Script" uid="uid://cil0pg66ane66" path="res://world.gd" id="1_hiqwa"]
 [ext_resource type="Texture2D" uid="uid://btwj3l6vrmltx" path="res://player/spotlight.png" id="3_036b0"]
-[ext_resource type="PackedScene" uid="uid://bemea5l33ar7b" path="res://enemy.tscn" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://dvq63g7ux8nv8" path="res://line_2d.gd" id="5_036b0"]
 [ext_resource type="AudioStream" uid="uid://c8uxxfdxi2uqw" path="res://matthewvakaliuk73627-california-eas-alarm-298789.mp3" id="6_70uel"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
@@ -53,6 +53,7 @@ size = Vector2(300, 455)
 size = Vector2(512, 612)
 
 [node name="world" type="Node2D" unique_id=948228125]
+script = ExtResource("1_hiqwa")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=809423421 groups=["player_group"]]
 position = Vector2(127, 120)
@@ -129,9 +130,6 @@ autoplay = true
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="player" unique_id=1409267571]
 stream = ExtResource("6_70uel")
-
-[node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("3_tlwt5")]
-position = Vector2(-589, -280)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
@@ -371,25 +369,22 @@ one_shot = true
 
 [node name="BoronRod" parent="." unique_id=2286624 instance=ExtResource("14_70uel")]
 
-[node name="SpawnPoints" type="Node" parent="." unique_id=927228573]
+[node name="EnemySpawnPoints" type="Node" parent="." unique_id=927228573]
 
-[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=315511961 groups=["spawn_locations"]]
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints" unique_id=315511961 groups=["enemy_spots"]]
 position = Vector2(-533, 636)
 
-[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1999275445 groups=["spawn_locations"]]
-position = Vector2(5661, 562)
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints" unique_id=1999275445 groups=["enemy_spots"]]
+position = Vector2(3263, 273)
 
-[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1998998137 groups=["spawn_locations"]]
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints" unique_id=1998998137 groups=["enemy_spots"]]
 position = Vector2(170, 762)
 
-[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=1668802426 groups=["spawn_locations"]]
-position = Vector2(1843, 318)
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints" unique_id=1029553498 groups=["enemy_spots"]]
+position = Vector2(170, 762)
 
-[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" unique_id=454019494 groups=["spawn_locations"]]
-position = Vector2(1887, -281)
-
-[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" unique_id=1582512936 groups=["spawn_locations"]]
-position = Vector2(2612, 592)
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints" unique_id=1061227959 groups=["enemy_spots"]]
+position = Vector2(170, 762)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
