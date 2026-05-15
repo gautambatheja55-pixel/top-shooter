@@ -12,8 +12,7 @@
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
 [ext_resource type="AudioStream" uid="uid://b1i8ikwc12ydb" path="res://radioilluminati-radio-illuminati-nuclear-alarm-124010.mp3" id="11_2o6r5"]
-[ext_resource type="Script" uid="uid://fpmapluwajr8" path="res://boron_rod.gd" id="12_2o6r5"]
-[ext_resource type="Texture2D" uid="uid://dln8wm0731ddi" path="res://Boron.png" id="13_70uel"]
+[ext_resource type="PackedScene" uid="uid://dg3uf7qvdqmg6" path="res://boron_rod.tscn" id="14_70uel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(67, 64)
@@ -52,9 +51,6 @@ size = Vector2(300, 455)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wse8f"]
 size = Vector2(512, 612)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2o6r5"]
-radius = 87.32124
 
 [node name="world" type="Node2D" unique_id=948228125]
 
@@ -137,9 +133,6 @@ stream = ExtResource("6_70uel")
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("3_tlwt5")]
 position = Vector2(-589, -280)
 
-[node name="enemy2" parent="." unique_id=1231066608 instance=ExtResource("3_tlwt5")]
-position = Vector2(2001, 981)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
 show_behind_parent = true
@@ -148,6 +141,7 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -375,17 +369,27 @@ shape = SubResource("RectangleShape2D_wse8f")
 wait_time = 3.0
 one_shot = true
 
-[node name="BoronRod" type="Area2D" parent="." unique_id=589593993]
-script = ExtResource("12_2o6r5")
+[node name="BoronRod" parent="." unique_id=2286624 instance=ExtResource("14_70uel")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoronRod" unique_id=890199728]
-position = Vector2(3268, 884)
-shape = SubResource("CircleShape2D_2o6r5")
+[node name="SpawnPoints" type="Node" parent="." unique_id=927228573]
 
-[node name="Sprite2D" type="Sprite2D" parent="BoronRod" unique_id=304400616]
-position = Vector2(3268, 887)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("13_70uel")
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=315511961 groups=["spawn_locations"]]
+position = Vector2(-533, 636)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1999275445 groups=["spawn_locations"]]
+position = Vector2(5661, 562)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1998998137 groups=["spawn_locations"]]
+position = Vector2(170, 762)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=1668802426 groups=["spawn_locations"]]
+position = Vector2(1843, 318)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" unique_id=454019494 groups=["spawn_locations"]]
+position = Vector2(1887, -281)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" unique_id=1582512936 groups=["spawn_locations"]]
+position = Vector2(2612, 592)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
@@ -396,4 +400,3 @@ texture = ExtResource("13_70uel")
 [connection signal="body_exited" from="StaticBody2D4/SocketZone" to="StaticBody2D4" method="_on_socket_zone_body_exited"]
 [connection signal="timeout" from="StaticBody2D4/Timer" to="StaticBody2D4" method="_on_timer_timeout"]
 [connection signal="body_entered" from="BoronRod" to="StaticBody2D4" method="_on_boron_rod_body_entered"]
-[connection signal="body_entered" from="BoronRod" to="BoronRod" method="_on_body_entered"]

@@ -4,9 +4,7 @@ var bulletspeed=2000
 var has_key: bool = false 
 var has_boron_rod:bool = false
 var bullet = preload("res://bullet.tscn")
-func _ready() -> void:
-	pass
-	
+
 func _physics_process(delta):
 	var motion = Vector2()
 	

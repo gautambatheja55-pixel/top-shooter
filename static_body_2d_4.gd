@@ -15,8 +15,7 @@ var rods_inserted :int = 0
 var base_heat_rate :float = 30.0
 var player_ref: Node2D = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float)-> void:
 	var current_heat_rate=base_heat_rate * (1.0 - (rods_inserted*0.4))
 	var shake_intensity= max(0,current_temp-2000)/800
 	if current_temp<MELT_POINT:
