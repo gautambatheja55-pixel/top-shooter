@@ -41,6 +41,44 @@ border_blend = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
 radius = 78.025635
 
+[sub_resource type="Animation" id="Animation_70uel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-668, 745)]
+}
+
+[sub_resource type="Animation" id="Animation_hiqwa"]
+resource_name = "new_animation"
+length = 1.9666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-668, 745), Vector2(-668, 661), Vector2(-668, 757)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2u3nc"]
+_data = {
+&"RESET": SubResource("Animation_70uel"),
+&"new_animation": SubResource("Animation_hiqwa")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
 size = Vector2(79, 601)
 
@@ -154,7 +192,6 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -314,6 +351,10 @@ texture = ExtResource("10_70uel")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1370139688]
 position = Vector2(-665, 740)
 shape = SubResource("CircleShape2D_dwbse")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Key" unique_id=1703036344]
+libraries/ = SubResource("AnimationLibrary_2u3nc")
+autoplay = &"new_animation"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=241765504]
 script = ExtResource("7_pkg7o")
