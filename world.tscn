@@ -55,7 +55,19 @@ size = Vector2(512, 612)
 [node name="world" type="Node2D" unique_id=948228125 groups=["world"]]
 
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("1_2o6r5")]
-position = Vector2(-533, 481)
+position = Vector2(516, 1189)
+
+[node name="enemy5" parent="." unique_id=2143429895 instance=ExtResource("1_2o6r5")]
+position = Vector2(-2067, 1674)
+
+[node name="enemy2" parent="." unique_id=2055289740 instance=ExtResource("1_2o6r5")]
+position = Vector2(-520, 3169)
+
+[node name="enemy3" parent="." unique_id=1598920499 instance=ExtResource("1_2o6r5")]
+position = Vector2(2443, -1341)
+
+[node name="enemy4" parent="." unique_id=1157246062 instance=ExtResource("1_2o6r5")]
+position = Vector2(5458, 2789)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=809423421 groups=["player_group"]]
 position = Vector2(127, 120)
@@ -160,6 +172,54 @@ script = ExtResource("5_036b0")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D/StaticBody2D" unique_id=1100027915]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D" unique_id=68272931]
+
+[node name="Line2D9" type="Line2D" parent="Walls" unique_id=987099555]
+position = Vector2(1127, 2583)
+points = PackedVector2Array(41, -26, -169, -589, 539, 92, 355, -445, 80, 14)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D9" unique_id=1911004150]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D9/StaticBody2D" unique_id=560689057]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D9" unique_id=397700013]
+
+[node name="Line2D8" type="Line2D" parent="Walls" unique_id=1621920000]
+position = Vector2(26, 2950)
+points = PackedVector2Array(-798, 787, -798, 1, 578, 1, 1443, 473, 2217, 79, 3056, -301)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D8" unique_id=2084784559]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D8/StaticBody2D" unique_id=1554606490]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D8" unique_id=652808093]
+
+[node name="Line2D7" type="Line2D" parent="Walls" unique_id=2035083004]
+position = Vector2(-616, 2098)
+points = PackedVector2Array(-754, -550, 1469, -537, 3174, -419, 4537, -157, 3737, 551)
+width = 100.0
+default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("5_036b0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls/Line2D7" unique_id=1077352837]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Line2D7/StaticBody2D" unique_id=1082666]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D7" unique_id=1075656343]
 
 [node name="Line2D6" type="Line2D" parent="Walls" unique_id=1624601903]
 position = Vector2(-942, 1989)
@@ -370,6 +430,13 @@ wait_time = 3.0
 one_shot = true
 
 [node name="BoronRod" parent="." unique_id=2286624 instance=ExtResource("14_70uel")]
+position = Vector2(-1534, 3225)
+
+[node name="BoronRod2" parent="." unique_id=1338730127 instance=ExtResource("14_70uel")]
+position = Vector2(-4156, 2097)
+
+[node name="BoronRod3" parent="." unique_id=558624157 instance=ExtResource("14_70uel")]
+position = Vector2(-118, 2294)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
@@ -380,3 +447,5 @@ one_shot = true
 [connection signal="body_exited" from="StaticBody2D4/SocketZone" to="StaticBody2D4" method="_on_socket_zone_body_exited"]
 [connection signal="timeout" from="StaticBody2D4/Timer" to="StaticBody2D4" method="_on_timer_timeout"]
 [connection signal="body_entered" from="BoronRod" to="StaticBody2D4" method="_on_boron_rod_body_entered"]
+[connection signal="body_entered" from="BoronRod2" to="StaticBody2D4" method="_on_boron_rod_body_entered"]
+[connection signal="body_entered" from="BoronRod3" to="StaticBody2D4" method="_on_boron_rod_body_entered"]
