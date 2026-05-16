@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
+[ext_resource type="Texture2D" uid="uid://dfwuq7u8ddece" path="res://3d-battery-icon-full-charge-indicator-blue-circle.png" id="10_70uel"]
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
 [ext_resource type="AudioStream" uid="uid://b1i8ikwc12ydb" path="res://radioilluminati-radio-illuminati-nuclear-alarm-124010.mp3" id="11_2o6r5"]
@@ -38,7 +39,7 @@ border_color = Color(0.86915, 0.24872258, 0.24919754, 1)
 border_blend = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
-radius = 257.38104
+radius = 78.025635
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
 size = Vector2(79, 601)
@@ -58,7 +59,7 @@ size = Vector2(512, 612)
 position = Vector2(516, 1189)
 
 [node name="enemy5" parent="." unique_id=2143429895 instance=ExtResource("1_2o6r5")]
-position = Vector2(-2067, 1674)
+position = Vector2(-2067, 1672)
 
 [node name="enemy2" parent="." unique_id=2055289740 instance=ExtResource("1_2o6r5")]
 position = Vector2(-520, 3169)
@@ -306,10 +307,12 @@ position = Vector2(82, 88)
 script = ExtResource("6_pkg7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1192783416]
-position = Vector2(-562, 1163)
+position = Vector2(-668, 745)
+scale = Vector2(0.11224999, 0.11224999)
+texture = ExtResource("10_70uel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1370139688]
-position = Vector2(-552, 1162)
+position = Vector2(-665, 740)
 shape = SubResource("CircleShape2D_dwbse")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=241765504]
