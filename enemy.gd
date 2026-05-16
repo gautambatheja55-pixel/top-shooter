@@ -1,23 +1,14 @@
 extends CharacterBody2D
 
-@onready var player = get_tree().root.find_child("player", true, false)
+var motion = Vector2()
 
 func _physics_process(delta: float) -> void:
-	if player:
-		look_at(player.global_position)
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * 150
-		move_and_slide()
-
+	var Player = get_parent().get_node("player")
+	
+	position += (Player.position - position)/50
+	look_at(Player.position)
+	move_and_collide(motion)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("I touched: ", body.name) # This is our debugger
-	
-	# Check for the name "player" OR the group
-	if body.name == "player" or body.is_in_group("player_group"):
-		get_tree().reload_current_scene()
-		
-	if body.is_in_group("bullet") or body.name.contains("Bullet"):
+	if body.is_in_group("bullet"):
 		queue_free()
-		
-	
