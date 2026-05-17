@@ -45,5 +45,4 @@ func _physics_process(delta: float):
 				if distance_to_player < 25.0:
 					get_tree().reload_current_scene()
 
-		for i in get_slide_collision_count():
-			pass
+		

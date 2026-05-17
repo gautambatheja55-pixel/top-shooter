@@ -9,7 +9,7 @@ size = Vector2(111, 106)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
 size = Vector2(133, 122)
 
-[node name="enemy" type="CharacterBody2D" unique_id=1248482935]
+[node name="enemy" type="CharacterBody2D" unique_id=1248482935 groups=["enemy"]]
 floor_constant_speed = true
 script = ExtResource("1_4gyqm")
 
