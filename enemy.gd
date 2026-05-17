@@ -5,8 +5,7 @@ var current_state = State.IDLE
 var alert_timer = 0.4
 @onready var ray: RayCast2D = $RayCast2D
 @onready var player: CharacterBody2D = $"../player"
-@onready var danger_glow: Panel = $"../player/Camera2D/CanvasLayer/DangerGlow"
-var speed = 150
+var speed = 350
 
 func _physics_process(delta: float):
 	if player and ray:
@@ -21,12 +20,10 @@ func _physics_process(delta: float):
 		match current_state:
 			State.IDLE:
 				var distance = global_position.distance_to(player.global_position)
-				if distance < 450.0 and can_see_player:
+				if distance < 550.0 and can_see_player:
 					current_state = State.SPOTTED
-					alert_timer = 0.4
-					if danger_glow:
-						danger_glow.visible = true
-						
+					alert_timer = 1
+					
 			State.SPOTTED:
 				velocity = Vector2.ZERO
 				alert_timer -= delta
@@ -40,7 +37,7 @@ func _physics_process(delta: float):
 				velocity = direction * speed
 				
 				move_and_slide()
-				
+					
 				var distance_to_player = global_position.distance_to(player.global_position)
 				if distance_to_player < 25.0:
 					get_tree().reload_current_scene()
