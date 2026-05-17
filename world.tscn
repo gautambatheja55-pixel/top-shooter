@@ -94,7 +94,7 @@ size = Vector2(512, 612)
 [node name="world" type="Node2D" unique_id=948228125 groups=["world"]]
 
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("1_2o6r5")]
-position = Vector2(516, 1189)
+position = Vector2(491, 1256)
 
 [node name="enemy5" parent="." unique_id=2143429895 instance=ExtResource("1_2o6r5")]
 position = Vector2(-2067, 1672)
@@ -192,6 +192,7 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
