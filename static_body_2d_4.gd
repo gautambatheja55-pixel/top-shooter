@@ -7,6 +7,8 @@ extends StaticBody2D
 @onready var alarm: AudioStreamPlayer2D = $"../player/Alarm"
 @onready var bg: AudioStreamPlayer2D = $"../player/Bg"
 @onready var danger_glow: Panel = $"../player/Camera2D/CanvasLayer/DangerGlow"
+@onready var game_over_screen: Control = $"../player/Camera2D/CanvasLayer/GameOverScreen"
+
 
 #variables
 var current_temp :float = 800.0
@@ -53,7 +55,6 @@ func _process(delta: float)-> void:
 		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
 		danger_glow.self_modulate.a=pulse
 		
-	else:
 		if alarm.playing:
 			alarm.stop()
 		if not bg.playing:

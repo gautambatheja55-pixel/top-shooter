@@ -4,6 +4,7 @@ var bulletspeed=2000
 var has_key: bool = false 
 var has_boron_rod:bool = false
 var bullet = preload("res://bullet.tscn")
+@onready var game_over_ui: Control = $Camera2D/CanvasLayer/GameOverScreen
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -32,7 +33,10 @@ func fire():
 	get_tree().get_root().call_deferred("add_child",bullet_instance)
 
 func kill():
-	get_tree().call_deferred("reload_current_scene")
+	if game_over_ui:
+		game_over_ui.trigger_game_over()
+	else:
+		print("hiii")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "enemy" in body.name:
