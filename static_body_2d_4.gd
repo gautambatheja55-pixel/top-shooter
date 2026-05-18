@@ -42,6 +42,7 @@ func _process(delta: float)-> void:
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	else:
 		camera_2d.offset=Vector2.ZERO
+		
 	if current_temp>=2400:
 		if not alarm.playing:
 			alarm.play()
