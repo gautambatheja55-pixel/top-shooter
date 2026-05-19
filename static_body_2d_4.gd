@@ -55,11 +55,7 @@ func _process(delta: float)-> void:
 		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
 		danger_glow.self_modulate.a=pulse
 		
-		if alarm.playing:
-			alarm.stop()
-		if not bg.playing:
-			bg.play()
-		danger_glow.visible=false
+	
 		
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:

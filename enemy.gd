@@ -44,5 +44,3 @@ func _physics_process(delta: float):
 					game_over_ui.trigger_game_over()
 				else:
 					print("nothing")
-
-		

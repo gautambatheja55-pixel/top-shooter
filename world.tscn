@@ -42,7 +42,7 @@ border_blend = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u3nc"]
 shader = ExtResource("5_hiqwa")
-shader_parameter/blur_amount = 3.8930001849174998
+shader_parameter/blur_amount = 3.8930001849175
 
 [sub_resource type="LabelSettings" id="LabelSettings_70uel"]
 font = ExtResource("9_ioo17")
@@ -153,7 +153,6 @@ offset_left = 16.0
 offset_top = 525.0
 offset_right = 534.0
 offset_bottom = 626.0
-text = "Hii"
 label_settings = SubResource("LabelSettings_2o6r5")
 
 [node name="TimerLabel" type="Label" parent="player/Camera2D/CanvasLayer" unique_id=2087631393]
@@ -162,7 +161,6 @@ offset_top = 594.00006
 offset_right = 506.0
 offset_bottom = 740.00006
 rotation = 0.017413385
-text = "hii"
 label_settings = SubResource("LabelSettings_k3n1d")
 
 [node name="ProgressBar" type="ProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1389113875]
@@ -184,6 +182,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_70uel")
 
 [node name="GameOverScreen" type="Control" parent="player/Camera2D/CanvasLayer" unique_id=1718246555]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,7 +247,6 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
