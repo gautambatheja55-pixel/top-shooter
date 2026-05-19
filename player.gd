@@ -24,7 +24,8 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("LMB"):
 		fire()
-		
+
+
 func fire():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position=get_global_position()

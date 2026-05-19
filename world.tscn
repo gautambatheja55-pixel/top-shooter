@@ -9,7 +9,9 @@
 [ext_resource type="Shader" uid="uid://cni0urpc3osbx" path="res://world.gdshader" id="5_hiqwa"]
 [ext_resource type="AudioStream" uid="uid://c8uxxfdxi2uqw" path="res://matthewvakaliuk73627-california-eas-alarm-298789.mp3" id="6_70uel"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
+[ext_resource type="Script" uid="uid://7lss1vt838yi" path="res://objective_tracker.gd" id="7_ikiii"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://dsd863oi6s3is" path="res://background-removed-background-removed.png" id="8_ikiii"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
 [ext_resource type="Texture2D" uid="uid://dfwuq7u8ddece" path="res://3d-battery-icon-full-charge-indicator-blue-circle.png" id="10_70uel"]
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
@@ -224,6 +226,14 @@ label_settings = SubResource("LabelSettings_hiqwa")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="ObjectiveTracker" type="Marker2D" parent="player/Camera2D/CanvasLayer" unique_id=1013202161]
+position = Vector2(370, 216)
+script = ExtResource("7_ikiii")
+
+[node name="Sprite2D" type="Sprite2D" parent="player/Camera2D/CanvasLayer/ObjectiveTracker" unique_id=1681994665]
+scale = Vector2(0.17222376, 0.17222376)
+texture = ExtResource("8_ikiii")
+
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
 scale = Vector2(14.050001, 13.860002)
@@ -247,6 +257,7 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -506,7 +517,7 @@ script = ExtResource("5_036b0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D3/Door_image" unique_id=402978887]
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=76233871]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=76233871 groups=["reactor"]]
 script = ExtResource("10_ic0uy")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4" unique_id=1746791226]
