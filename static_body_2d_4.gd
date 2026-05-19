@@ -1,13 +1,14 @@
 extends StaticBody2D
-@onready var TempLabel: Label = $"../player/Camera2D/CanvasLayer/TempLabel"
-@onready var TimerLabel: Label = $"../player/Camera2D/CanvasLayer/TimerLabel"
+
+@onready var TempLabel: Label = $"../player/CanvasLayer/TempLabel"
+@onready var TimerLabel: Label = $"../player/CanvasLayer/TimerLabel"
 @onready var timer: Timer = $Timer
-@onready var progress_bar: ProgressBar = $"../player/Camera2D/CanvasLayer/ProgressBar"
+@onready var progress_bar: ProgressBar = $"../player/CanvasLayer/ProgressBar"
 @onready var camera_2d: Camera2D = $"../player/Camera2D"
 @onready var alarm: AudioStreamPlayer2D = $"../player/Alarm"
 @onready var bg: AudioStreamPlayer2D = $"../player/Bg"
-@onready var danger_glow: Panel = $"../player/Camera2D/CanvasLayer/DangerGlow"
-@onready var game_over_screen: Control = $"../player/Camera2D/CanvasLayer/GameOverScreen"
+@onready var danger_glow: Panel = $"../player/CanvasLayer/DangerGlow"
+@onready var game_over_screen: Control = $"../player/CanvasLayer/GameOverScreen"
 
 
 #variables

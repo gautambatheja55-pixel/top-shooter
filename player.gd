@@ -4,7 +4,7 @@ var bulletspeed=2000
 var has_key: bool = false 
 var has_boron_rod:bool = false
 var bullet = preload("res://bullet.tscn")
-@onready var game_over_ui: Control = $Camera2D/CanvasLayer/GameOverScreen
+@onready var game_over_ui: Control = $CanvasLayer/GameOverScreen
 
 func _physics_process(delta):
 	var motion = Vector2()

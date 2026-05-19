@@ -6,7 +6,7 @@ var alert_timer = 0.4
 @onready var ray: RayCast2D = $RayCast2D
 @onready var player: CharacterBody2D = $"../player"
 var speed = 350
-@onready var game_over_ui: Control = $"../player/Camera2D/CanvasLayer/GameOverScreen"
+@onready var game_over_ui: Control = $"../player/CanvasLayer/GameOverScreen"
 
 func _physics_process(delta: float):
 	if player and ray:
@@ -43,4 +43,4 @@ func _physics_process(delta: float):
 				if distance_to_player < 80.0:
 					game_over_ui.trigger_game_over()
 				else:
-					print("nothing")
+					print("distance_to_player statement not executed")

@@ -9,12 +9,12 @@
 [ext_resource type="Shader" uid="uid://cni0urpc3osbx" path="res://world.gdshader" id="5_hiqwa"]
 [ext_resource type="AudioStream" uid="uid://c8uxxfdxi2uqw" path="res://matthewvakaliuk73627-california-eas-alarm-298789.mp3" id="6_70uel"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
-[ext_resource type="Script" uid="uid://7lss1vt838yi" path="res://objective_tracker.gd" id="7_ikiii"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://dsd863oi6s3is" path="res://background-removed-background-removed.png" id="8_ikiii"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
 [ext_resource type="Texture2D" uid="uid://dfwuq7u8ddece" path="res://3d-battery-icon-full-charge-indicator-blue-circle.png" id="10_70uel"]
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
+[ext_resource type="Script" uid="uid://dfr2l635winkq" path="res://compass_root.gd" id="10_ikiii"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
 [ext_resource type="AudioStream" uid="uid://b1i8ikwc12ydb" path="res://radioilluminati-radio-illuminati-nuclear-alarm-124010.mp3" id="11_2o6r5"]
 [ext_resource type="PackedScene" uid="uid://dg3uf7qvdqmg6" path="res://boron_rod.tscn" id="14_70uel"]
@@ -148,92 +148,6 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=746254176]
-
-[node name="TempLabel" type="Label" parent="player/Camera2D/CanvasLayer" unique_id=1324916516]
-offset_left = 16.0
-offset_top = 525.0
-offset_right = 534.0
-offset_bottom = 626.0
-label_settings = SubResource("LabelSettings_2o6r5")
-
-[node name="TimerLabel" type="Label" parent="player/Camera2D/CanvasLayer" unique_id=2087631393]
-offset_left = 15.999999
-offset_top = 594.00006
-offset_right = 506.0
-offset_bottom = 740.00006
-rotation = 0.017413385
-label_settings = SubResource("LabelSettings_k3n1d")
-
-[node name="ProgressBar" type="ProgressBar" parent="player/Camera2D/CanvasLayer" unique_id=1389113875]
-visible = false
-modulate = Color(0.43595254, 0.7093098, 0.75891054, 1)
-offset_left = 21.0
-offset_top = 29.0
-offset_right = 322.0
-offset_bottom = 486.0
-fill_mode = 3
-
-[node name="DangerGlow" type="Panel" parent="player/Camera2D/CanvasLayer" unique_id=530833083]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_70uel")
-
-[node name="GameOverScreen" type="Control" parent="player/Camera2D/CanvasLayer" unique_id=1718246555]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_2u3nc")
-
-[node name="BlurBackground" type="ColorRect" parent="player/Camera2D/CanvasLayer/GameOverScreen" unique_id=1670334062]
-material = SubResource("ShaderMaterial_2u3nc")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="player/Camera2D/CanvasLayer/GameOverScreen" unique_id=515771569]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.943
-anchor_bottom = 0.98
-offset_left = 29.0
-offset_top = 112.0
-offset_right = 71.66394
-offset_bottom = 110.95996
-
-[node name="Label" type="Label" parent="player/Camera2D/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=115979706]
-layout_mode = 2
-text = "YOU WERE CAUGHT
- BY THE GUARDS
-"
-label_settings = SubResource("LabelSettings_70uel")
-
-[node name="CountdownLabel" type="Label" parent="player/Camera2D/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1911652159]
-layout_mode = 2
-text = "3"
-label_settings = SubResource("LabelSettings_hiqwa")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="ObjectiveTracker" type="Marker2D" parent="player/Camera2D/CanvasLayer" unique_id=1013202161]
-position = Vector2(370, 216)
-script = ExtResource("7_ikiii")
-
-[node name="Sprite2D" type="Sprite2D" parent="player/Camera2D/CanvasLayer/ObjectiveTracker" unique_id=1681994665]
-scale = Vector2(0.17222376, 0.17222376)
-texture = ExtResource("8_ikiii")
-
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=680047718]
 position = Vector2(5.999993, -14)
 scale = Vector2(14.050001, 13.860002)
@@ -249,6 +163,95 @@ autoplay = true
 [node name="Alarm" type="AudioStreamPlayer2D" parent="player" unique_id=1409267571]
 stream = ExtResource("6_70uel")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="player" unique_id=746254176]
+
+[node name="TempLabel" type="Label" parent="player/CanvasLayer" unique_id=1324916516]
+offset_left = 16.0
+offset_top = 525.0
+offset_right = 534.0
+offset_bottom = 626.0
+text = "hii"
+label_settings = SubResource("LabelSettings_2o6r5")
+
+[node name="TimerLabel" type="Label" parent="player/CanvasLayer" unique_id=2087631393]
+offset_left = 15.999999
+offset_top = 594.00006
+offset_right = 506.0
+offset_bottom = 740.00006
+rotation = 0.017413385
+text = "hii"
+label_settings = SubResource("LabelSettings_k3n1d")
+
+[node name="ProgressBar" type="ProgressBar" parent="player/CanvasLayer" unique_id=1389113875]
+visible = false
+modulate = Color(0.43595254, 0.7093098, 0.75891054, 1)
+offset_left = 21.0
+offset_top = 29.0
+offset_right = 322.0
+offset_bottom = 486.0
+fill_mode = 3
+
+[node name="DangerGlow" type="Panel" parent="player/CanvasLayer" unique_id=530833083]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_70uel")
+
+[node name="GameOverScreen" type="Control" parent="player/CanvasLayer" unique_id=1718246555]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_2u3nc")
+
+[node name="BlurBackground" type="ColorRect" parent="player/CanvasLayer/GameOverScreen" unique_id=1670334062]
+material = SubResource("ShaderMaterial_2u3nc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="player/CanvasLayer/GameOverScreen" unique_id=515771569]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.943
+anchor_bottom = 0.98
+offset_left = 29.0
+offset_top = 112.0
+offset_right = 71.66394
+offset_bottom = 110.95996
+
+[node name="Label" type="Label" parent="player/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=115979706]
+layout_mode = 2
+text = "YOU WERE CAUGHT
+ BY THE GUARDS
+"
+label_settings = SubResource("LabelSettings_70uel")
+
+[node name="CountdownLabel" type="Label" parent="player/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1911652159]
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_hiqwa")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CompassRoot" type="Node2D" parent="player/CanvasLayer" unique_id=1882054394]
+position = Vector2(200, 100)
+script = ExtResource("10_ikiii")
+
+[node name="Sprite2D" type="Sprite2D" parent="player/CanvasLayer/CompassRoot" unique_id=1176494527]
+position = Vector2(60, 0)
+scale = Vector2(0.11159997, 0.12353276)
+texture = ExtResource("8_ikiii")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
 show_behind_parent = true
@@ -257,7 +260,6 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
