@@ -345,7 +345,7 @@ script = ExtResource("5_036b0")
 
 [node name="Line2D5" type="Line2D" parent="Walls" unique_id=2108733083]
 position = Vector2(3333, 2286)
-points = PackedVector2Array(1012, -995, 1937, -1466, 2321, -785, 2303, -105, 2024, 296, 1518, 611)
+points = PackedVector2Array(1163, -1795, 1937, -1466, 2321, -785, 2303, -105, 2024, 296, 1518, 611)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -361,7 +361,7 @@ script = ExtResource("5_036b0")
 
 [node name="Line2D4" type="Line2D" parent="Walls" unique_id=311583434]
 position = Vector2(366, -942)
-points = PackedVector2Array(-1139, 393, -1622, 436, -1500, 157, -872, 35, 3298, 104, 4153, 384, 4782, 1291, 3927, 1745)
+points = PackedVector2Array(-1139, 393, -1622, 436, -1500, 157, -872, 35, 3298, 104, 4061, 281, 4297, 714, 3923, 754)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -377,7 +377,7 @@ script = ExtResource("5_036b0")
 
 [node name="Line2D2" type="Line2D" parent="Walls" unique_id=972353589]
 position = Vector2(2492, 138)
-points = PackedVector2Array(-1591, 622, 63, 809, -1237, 435, -1572, -669, 1807, -669, 1551, -393, 1561, 405, 1797, 691)
+points = PackedVector2Array(-1641, 593, -114, 655, 1038, 704, 1994, 842, 2535, 1128, 2890, 1473, 2969, 1896, 2880, 2408, 3008, 1906, 2971.6748, 1194.6929, 2870, 921, 2250, 655, 1058, 583, -114, 534, -1355, 524, -1572, -669, -439, -769, 763, -760, 1581, -543, 1787, -336)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -486,7 +486,8 @@ script = ExtResource("5_036b0")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D2/Door_image" unique_id=341392565]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1198748677]
-position = Vector2(5069, 1357)
+position = Vector2(5079, 480)
+rotation = 0.0331518
 script = ExtResource("7_pkg7o")
 
 [node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D3" unique_id=818035731]
@@ -503,9 +504,9 @@ shape = SubResource("RectangleShape2D_gbfbk")
 
 [node name="Door_image" type="Line2D" parent="StaticBody2D3" unique_id=279506055]
 position = Vector2(554.9999, -21.999996)
-rotation = -0.019061944
+rotation = -0.050439086
 scale = Vector2(1.2638901, 1.0365407)
-points = PackedVector2Array(-938.2461, -120.2323, -1002.78174, -142.9607, -944.98047, -195.65271, -1016.7258, -212.75916, -953.1914, -277.86206, -1028.2974, -282.5027, -969.59937, -341.92834, -1041.2544, -364.82227, -989.63965, -418.10278, -1045.3291, -458.51453, -982.2168, -496.60925, -1048.7937, -540.61346)
+points = PackedVector2Array(-910.0281, -23.437622, -988.35767, -80.08771, -923.5134, -132.75464, -1017.01025, -180.07556, -934.62524, -242.02164, -1035.324, -283.70502, -953.021, -339.8635, -1046.477, -390.07822, -958.7732, -436.4739, -1054.4656, -496.3847, -972.08057, -558.33075, -1045.335, -638.03125)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
