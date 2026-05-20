@@ -288,12 +288,11 @@ texture = ExtResource("8_ikiii")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
 show_behind_parent = true
-position = Vector2(1775.2496, 770.2501)
-scale = Vector2(42.095554, 28.584444)
+position = Vector2(1740.4994, 796.4999)
+scale = Vector2(44.42222, 30.368887)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
