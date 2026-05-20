@@ -1,6 +1,7 @@
 extends Control
 @onready var countdown_label: Label = $VBoxContainer/CountdownLabel
 var time_left:float = 3.0
+@onready var compass_root: Node2D = $"../CompassRoot"
 
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -9,6 +10,7 @@ func _ready() -> void:
 func trigger_game_over():
 	show()
 	get_tree().paused=true
+	compass_root.hide()
 	time_left=3.0
 	
 func _process(delta: float) -> void:

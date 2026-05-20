@@ -12,10 +12,10 @@ extends StaticBody2D
 
 
 #variables
-var current_temp :float = 800.0
+var current_temp :float = 750.0
 const MELT_POINT :float = 2800.0 
 var rods_inserted :int = 0
-var base_heat_rate :float = 30.0
+var base_heat_rate :float = 20.0
 var player_ref: Node2D = null
 
 func _process(delta: float)-> void:
