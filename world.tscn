@@ -110,16 +110,49 @@ size = Vector2(512, 612)
 [node name="world" type="Node2D" unique_id=948228125 groups=["world"]]
 
 [node name="enemy" parent="." unique_id=1248482935 instance=ExtResource("1_2o6r5")]
-position = Vector2(491, 1256)
+position = Vector2(2106, -360)
+
+[node name="enemy6" parent="." unique_id=1899938994 instance=ExtResource("1_2o6r5")]
+position = Vector2(2136, 379)
+
+[node name="enemy7" parent="." unique_id=2111945317 instance=ExtResource("1_2o6r5")]
+position = Vector2(3456, 379)
+
+[node name="enemy8" parent="." unique_id=2015869457 instance=ExtResource("1_2o6r5")]
+position = Vector2(3446, -133)
 
 [node name="enemy5" parent="." unique_id=2143429895 instance=ExtResource("1_2o6r5")]
-position = Vector2(-2067, 1672)
+position = Vector2(-2274, 1179)
+
+[node name="enemy14" parent="." unique_id=589026329 instance=ExtResource("1_2o6r5")]
+position = Vector2(-1515, 1436)
+
+[node name="enemy15" parent="." unique_id=1894920654 instance=ExtResource("1_2o6r5")]
+position = Vector2(-836, 2806)
+
+[node name="enemy16" parent="." unique_id=1745381495 instance=ExtResource("1_2o6r5")]
+position = Vector2(563, 1801)
 
 [node name="enemy2" parent="." unique_id=2055289740 instance=ExtResource("1_2o6r5")]
-position = Vector2(-520, 3169)
+position = Vector2(1214, 3563)
+
+[node name="enemy9" parent="." unique_id=490784560 instance=ExtResource("1_2o6r5")]
+position = Vector2(62, 3179)
+
+[node name="enemy10" parent="." unique_id=669942666 instance=ExtResource("1_2o6r5")]
+position = Vector2(62, 3524)
 
 [node name="enemy3" parent="." unique_id=1598920499 instance=ExtResource("1_2o6r5")]
-position = Vector2(2443, -1341)
+position = Vector2(3182, -1538)
+
+[node name="enemy11" parent="." unique_id=1976711632 instance=ExtResource("1_2o6r5")]
+position = Vector2(-1950, -858)
+
+[node name="enemy12" parent="." unique_id=1926876687 instance=ExtResource("1_2o6r5")]
+position = Vector2(-1231, -1321)
+
+[node name="enemy13" parent="." unique_id=1448580944 instance=ExtResource("1_2o6r5")]
+position = Vector2(4757, -652)
 
 [node name="enemy4" parent="." unique_id=1157246062 instance=ExtResource("1_2o6r5")]
 position = Vector2(5458, 2789)
@@ -260,6 +293,7 @@ scale = Vector2(42.095554, 28.584444)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
+visible = false
 color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
@@ -313,7 +347,7 @@ script = ExtResource("5_036b0")
 
 [node name="Line2D7" type="Line2D" parent="Walls" unique_id=2035083004]
 position = Vector2(-616, 2098)
-points = PackedVector2Array(-754, -550, 1469, -537, 3174, -419, 4537, -157, 3737, 551)
+points = PackedVector2Array(-754, -550, 1469, -537, 3174, -419, 4247, -119, 3737, 551)
 width = 100.0
 default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 joint_mode = 2
@@ -543,13 +577,13 @@ wait_time = 3.0
 one_shot = true
 
 [node name="BoronRod" parent="." unique_id=2286624 instance=ExtResource("14_70uel")]
-position = Vector2(-1534, 3225)
+position = Vector2(-2371, 3353)
 
 [node name="BoronRod2" parent="." unique_id=1338730127 instance=ExtResource("14_70uel")]
-position = Vector2(-4156, 2097)
+position = Vector2(-1765, 2481)
 
 [node name="BoronRod3" parent="." unique_id=558624157 instance=ExtResource("14_70uel")]
-position = Vector2(-118, 2294)
+position = Vector2(3826, 2486)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
