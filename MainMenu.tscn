@@ -53,6 +53,11 @@ cache/0/100/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_iwfq2"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_7r1g0"]
+font = ExtResource("1_i26rj")
+font_size = 25
+font_color = Color(0.951971, 0, 0.25354424, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_h7a2f"]
 font = ExtResource("1_i26rj")
 font_size = 60
@@ -84,9 +89,9 @@ autoplay = true
 
 [node name="Button" type="Button" parent="." unique_id=2104194292]
 layout_mode = 0
-offset_left = 671.0
+offset_left = 620.0
 offset_top = 154.0
-offset_right = 1119.0
+offset_right = 1094.0
 offset_bottom = 307.0
 theme_override_fonts/font = SubResource("FontFile_kjwba")
 theme_override_font_sizes/font_size = 100
@@ -96,9 +101,9 @@ text = "Play
 
 [node name="Button2" type="Button" parent="." unique_id=145125003]
 layout_mode = 0
-offset_left = 678.0
+offset_left = 618.0
 offset_top = 390.0
-offset_right = 1114.0
+offset_right = 1105.0
 offset_bottom = 532.0
 theme_override_fonts/font = SubResource("FontFile_i26rj")
 theme_override_font_sizes/font_size = 100
@@ -106,6 +111,7 @@ text = "Objective
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2029578842]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,9 +127,9 @@ color = Color(0.3734304, 0.18893632, 0.1510503, 1)
 [node name="Label" type="Label" parent="MarginContainer/ColorRect" unique_id=2023622058]
 layout_mode = 0
 offset_left = 35.0
-offset_top = 53.0
+offset_top = 34.0
 offset_right = 1185.0
-offset_bottom = 577.0
+offset_bottom = 558.0
 text = "You have successfully slipped past perimeter security into the nuclear facility. 
 The core is rapidly overheating toward its catastrophic melting point of 2800°C.
 
@@ -142,6 +148,17 @@ WARNING: Heavy electromagnetic interference near the starting room
 You must navigate the starting sector blindly until you break out into the corridors 
 where your compass can recalibrate!"
 label_settings = SubResource("LabelSettings_iwfq2")
+
+[node name="Label2" type="Label" parent="MarginContainer/ColorRect" unique_id=1198963645]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 326.0
+offset_right = 1256.0
+offset_bottom = 413.0
+text = "YOU ONLY HAVE
+
+ 100 SECONDS!"
+label_settings = SubResource("LabelSettings_7r1g0")
 
 [node name="Button" type="Button" parent="MarginContainer/ColorRect" unique_id=1958887391]
 layout_mode = 0
