@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bq4r2cb6mqrxr"]
 
 [ext_resource type="Script" uid="uid://dtmvdyeocf51r" path="res://main_menu.gd" id="1_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://0jmj7gsycahp" path="res://Screenshot 2026-05-21 150651.png" id="1_i26rj"]
+[ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://cqpgib1d32u71" path="res://Untitled design.png" id="2_eiy7p"]
 
 [sub_resource type="FontFile" id="FontFile_kjwba"]
 cache/0/variation_coordinates = {}
@@ -48,6 +49,11 @@ cache/0/100/0/underline_position = 0.0
 cache/0/100/0/underline_thickness = 0.0
 cache/0/100/0/scale = 1.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_h7a2f"]
+font = ExtResource("1_i26rj")
+font_size = 60
+font_color = Color(0.6980835, 0.2880632, 0.19239247, 1)
+
 [node name="Control" type="Control" unique_id=1601507192]
 layout_mode = 3
 anchors_preset = 15
@@ -64,17 +70,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_i26rj")
+texture = ExtResource("2_eiy7p")
 expand_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2039919623]
 
 [node name="Button" type="Button" parent="." unique_id=2104194292]
 layout_mode = 0
-offset_left = 595.0
-offset_top = 145.0
-offset_right = 1043.0
-offset_bottom = 298.0
+offset_left = 671.0
+offset_top = 154.0
+offset_right = 1119.0
+offset_bottom = 307.0
 theme_override_fonts/font = SubResource("FontFile_kjwba")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i26rj")
@@ -83,10 +89,10 @@ text = "Play
 
 [node name="Button2" type="Button" parent="." unique_id=145125003]
 layout_mode = 0
-offset_left = 606.0
-offset_top = 367.0
-offset_right = 1042.0
-offset_bottom = 509.0
+offset_left = 678.0
+offset_top = 390.0
+offset_right = 1114.0
+offset_bottom = 532.0
 theme_override_fonts/font = SubResource("FontFile_i26rj")
 theme_override_font_sizes/font_size = 100
 text = "Story
@@ -109,5 +115,15 @@ color = Color(0.3734304, 0.18893632, 0.1510503, 1)
 layout_mode = 0
 offset_right = 585.0
 offset_bottom = 262.0
+
+[node name="Label" type="Label" parent="." unique_id=437904471]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 524.0
+offset_right = 541.0
+offset_bottom = 673.0
+text = "Nuclear
+Avoid"
+label_settings = SubResource("LabelSettings_h7a2f")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
