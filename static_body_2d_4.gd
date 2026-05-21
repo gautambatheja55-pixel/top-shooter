@@ -36,8 +36,8 @@ func _process(delta: float)-> void:
 		progress_bar.value= (timer.wait_time - timer.time_left)/timer.wait_time * 100
 	
 	if shake_intensity>0 and shake_intensity<0.5:
-		var shake_x=randf_range(-2,2)
-		var shake_y=randf_range(-2,2)
+		var shake_x=randf_range(-4,4)
+		var shake_y=randf_range(-4,4)
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	elif shake_intensity>0.5:
 		var shake_x=randf_range(-15,15)

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dtmvdyeocf51r" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="1_i26rj"]
 [ext_resource type="Texture2D" uid="uid://cqpgib1d32u71" path="res://Untitled design.png" id="2_eiy7p"]
+[ext_resource type="AudioStream" uid="uid://cgvw7bm3k5kl0" path="res://arctsound-ambient-suspense-atmosphere-117563.mp3" id="3_qoqlk"]
+[ext_resource type="Script" uid="uid://d1msntfygfv7w" path="res://margin_container.gd" id="4_iwfq2"]
 
 [sub_resource type="FontFile" id="FontFile_kjwba"]
 cache/0/variation_coordinates = {}
@@ -49,6 +51,8 @@ cache/0/100/0/underline_position = 0.0
 cache/0/100/0/underline_thickness = 0.0
 cache/0/100/0/scale = 1.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_iwfq2"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_h7a2f"]
 font = ExtResource("1_i26rj")
 font_size = 60
@@ -74,6 +78,9 @@ texture = ExtResource("2_eiy7p")
 expand_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2039919623]
+stream = ExtResource("3_qoqlk")
+volume_db = 5.403
+autoplay = true
 
 [node name="Button" type="Button" parent="." unique_id=2104194292]
 layout_mode = 0
@@ -95,17 +102,17 @@ offset_right = 1114.0
 offset_bottom = 532.0
 theme_override_fonts/font = SubResource("FontFile_i26rj")
 theme_override_font_sizes/font_size = 100
-text = "Story
+text = "Objective
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2029578842]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_iwfq2")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=498672876]
 layout_mode = 2
@@ -113,8 +120,37 @@ color = Color(0.3734304, 0.18893632, 0.1510503, 1)
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect" unique_id=2023622058]
 layout_mode = 0
-offset_right = 585.0
-offset_bottom = 262.0
+offset_left = 35.0
+offset_top = 53.0
+offset_right = 1185.0
+offset_bottom = 577.0
+text = "You have successfully slipped past perimeter security into the nuclear facility. 
+The core is rapidly overheating toward its catastrophic melting point of 2800°C.
+
+Your objectives are absolute:
+LOCATE THE HIGH-CAPACITY BATTERY: 
+The electronic doors are locked down. You must find the bypass battery to unlock access to the rest of the facility.
+
+SECURE 3 CONTROL RODS: 
+Find the three circular stabilizing rods hidden across the sectors.
+
+STABILIZE THE REACTOR: 
+Insert all 3 rods into the core to halt the meltdown.
+
+WARNING: Heavy electromagnetic interference near the starting room
+ completely disables your navigation pointing arrow. 
+You must navigate the starting sector blindly until you break out into the corridors 
+where your compass can recalibrate!"
+label_settings = SubResource("LabelSettings_iwfq2")
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect" unique_id=1958887391]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 480.0
+offset_right = 1095.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 100
+text = "Play"
 
 [node name="Label" type="Label" parent="." unique_id=437904471]
 layout_mode = 0
@@ -127,3 +163,5 @@ Avoid"
 label_settings = SubResource("LabelSettings_h7a2f")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/Button" to="MarginContainer" method="_on_button_pressed"]
