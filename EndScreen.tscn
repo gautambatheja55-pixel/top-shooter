@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dmi64rheypp7d"]
+
+[ext_resource type="VideoStream" uid="uid://1iyb7gl5uqff" path="res://Explosion.ogv" id="1_ekb8w"]
+[ext_resource type="Script" uid="uid://bix2ouhg287sg" path="res://end_screen.gd" id="1_lmk8k"]
+[ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="3_3w1jx"]
+[ext_resource type="AudioStream" uid="uid://to2u5bxco5ep" path="res://floraphonic-analog-appliance-button-15-186961.mp3" id="4_3w1jx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6a7n"]
+font = ExtResource("3_3w1jx")
+font_size = 80
+font_color = Color(0.9043245, 0, 0.06794287, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adxjw"]
+font_size = 40
+
+[sub_resource type="SystemFont" id="SystemFont_7j885"]
+
+[node name="Control" type="Control" unique_id=950684069]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmk8k")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1525625049]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_ekb8w")
+autoplay = true
+expand = true
+
+[node name="BlackPage" type="ColorRect" parent="." unique_id=865922276]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06469653, 0.06469653, 0.06469653, 1)
+
+[node name="Label" type="Label" parent="BlackPage" unique_id=1375655406]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 66.0
+offset_right = 1145.0
+offset_bottom = 271.0
+text = "Containment
+Breach"
+label_settings = SubResource("LabelSettings_e6a7n")
+horizontal_alignment = 1
+
+[node name="TypingLabel" type="Label" parent="BlackPage" unique_id=1800013668]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 314.0
+offset_right = 1116.0
+offset_bottom = 578.0
+text = "hh"
+label_settings = SubResource("LabelSettings_adxjw")
+
+[node name="Typing" type="AudioStreamPlayer2D" parent="BlackPage" unique_id=508040628]
+stream = ExtResource("4_3w1jx")
+
+[node name="Button" type="Button" parent="BlackPage" unique_id=739839041]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79600006
+anchor_top = 0.79
+anchor_right = 0.79600006
+anchor_bottom = 0.79
+offset_left = -177.99207
+offset_top = 0.07998657
+offset_right = 179.00793
+offset_bottom = 96.07999
+theme_override_fonts/font = SubResource("SystemFont_7j885")
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+
+[node name="TypeTimer" type="Timer" parent="BlackPage" unique_id=1369282022]
+wait_time = 0.09
+
+[node name="VedioEndTimer" type="Timer" parent="BlackPage" unique_id=2087177879]
+wait_time = 2.3
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="BlackPage/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="BlackPage/TypeTimer" to="." method="_on_type_timer_timeout"]
+[connection signal="timeout" from="BlackPage/VedioEndTimer" to="." method="_on_vedio_end_timer_timeout"]

@@ -45,6 +45,10 @@ func _process(delta: float)-> void:
 		camera_2d.offset=Vector2(shake_x,shake_y)
 	else:
 		camera_2d.offset=Vector2.ZERO
+	
+	if current_temp>=2800:
+		get_tree().change_scene_to_file("res://EndScreen.tscn")
+		current_temp=2000
 		
 	if current_temp>=2400:
 		if not alarm.playing:
@@ -55,9 +59,7 @@ func _process(delta: float)-> void:
 		danger_glow.visible = true
 		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
 		danger_glow.self_modulate.a=pulse
-		
 	
-		
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:
 		player_ref=body
