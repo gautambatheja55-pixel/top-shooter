@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://dvq63g7ux8nv8" path="res://line_2d.gd" id="5_036b0"]
 [ext_resource type="Shader" uid="uid://cni0urpc3osbx" path="res://world.gdshader" id="5_hiqwa"]
 [ext_resource type="AudioStream" uid="uid://3pcbb3bn6tjo" path="res://leberch-cyberpunk-suspense-375260.mp3" id="5_ikiii"]
-[ext_resource type="AudioStream" uid="uid://c8uxxfdxi2uqw" path="res://matthewvakaliuk73627-california-eas-alarm-298789.mp3" id="6_70uel"]
 [ext_resource type="AudioStream" uid="uid://c4qjnxg658h0i" path="res://dragon-studio-clock-ticking-down-376897.mp3" id="6_cbp6q"]
 [ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
+[ext_resource type="AudioStream" uid="uid://dc52a8ywxpikk" path="res://main_alarm.mp3" id="7_cbp6q"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://dsd863oi6s3is" path="res://background-removed-background-removed.png" id="8_ikiii"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
@@ -198,7 +198,7 @@ stream = ExtResource("6_cbp6q")
 autoplay = true
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="player" unique_id=1409267571]
-stream = ExtResource("6_70uel")
+stream = ExtResource("7_cbp6q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player" unique_id=746254176]
 
@@ -299,7 +299,7 @@ scale = Vector2(44.42222, 30.368887)
 texture = ExtResource("1_f3sb7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1266009498]
-color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+color = Color(0.08468992, 0.08468992, 0.08468992, 1)
 
 [node name="Walls" type="Node" parent="." unique_id=992001763]
 
