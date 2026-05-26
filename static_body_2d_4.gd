@@ -9,7 +9,7 @@ extends StaticBody2D
 @onready var bg: AudioStreamPlayer2D = $"../player/Bg"
 @onready var danger_glow: Panel = $"../player/CanvasLayer/DangerGlow"
 @onready var game_over_screen: Control = $"../player/CanvasLayer/GameOverScreen"
-
+var total_rods:int=0
 
 #variables
 var current_temp :float = 750.0
@@ -59,7 +59,10 @@ func _process(delta: float)-> void:
 		danger_glow.visible = true
 		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
 		danger_glow.self_modulate.a=pulse
-	
+		
+	if total_rods==2:
+		get_tree().change_scene_to_file("res://WinScene.tscn")
+		
 func _on_socket_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player_group") and body.has_boron_rod:
 		player_ref=body
@@ -82,4 +85,4 @@ func insert_rod(player):
 	player.has_boron_rod=false
 	player_ref=null
 	progress_bar.visible=false
-	print("Control rod slot: ",rods_inserted, " Locked.")
+	total_rods+=1
