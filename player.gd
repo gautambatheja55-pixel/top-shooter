@@ -36,13 +36,10 @@ func fire():
 func kill():
 	if game_over_ui:
 		game_over_ui.trigger_game_over()
-	else:
-		print("hiii")
-
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "enemy" in body.name:
 		kill()
-
 
 func _on_key_body_entered(body: Node2D) -> void:
 	body.has_key=true

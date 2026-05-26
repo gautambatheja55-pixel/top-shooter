@@ -42,5 +42,4 @@ func _physics_process(delta: float):
 				var distance_to_player = global_position.distance_to(player.global_position)
 				if distance_to_player < 80.0:
 					game_over_ui.trigger_game_over()
-				else:
-					print("distance_to_player statement not executed")
+				

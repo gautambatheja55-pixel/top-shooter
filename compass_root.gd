@@ -5,5 +5,4 @@ extends Node2D
 
 func _process(delta):
 	var direction = reactor.global_position - player.global_position
-	print(rad_to_deg(direction.angle()))
 	rotation = direction.angle()

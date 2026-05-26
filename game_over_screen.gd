@@ -6,7 +6,7 @@ var time_left:float = 3.0
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
 	hide()
-	visible
+	
 func trigger_game_over():
 	show()
 	get_tree().paused=true

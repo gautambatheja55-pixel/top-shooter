@@ -71,7 +71,6 @@ func _on_socket_zone_body_entered(body: Node2D) -> void:
 
 func _on_socket_zone_body_exited(body: Node2D) -> void:
 	if body == player_ref:
-		print("Interrupted!")
 		timer.stop()
 		progress_bar.visible=false
 		player_ref=null

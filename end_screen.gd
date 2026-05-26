@@ -18,12 +18,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-
 func _on_vedio_end_timer_timeout() -> void:
 	black_page.visible=true
 	type_timer.start()
 	video_stream_player.hide()
-
 
 func _on_type_timer_timeout() -> void:
 	if current_character<full_length.length():

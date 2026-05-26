@@ -8,7 +8,6 @@ func _ready():
 	
 	if shapes.size() > 0:
 		var poly_data = shapes[0]
-		
 		var occluder_poly = OccluderPolygon2D.new()
 		occluder_poly.polygon = poly_data
 		occluder_node.occluder = occluder_poly
