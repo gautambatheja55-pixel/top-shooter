@@ -231,7 +231,7 @@ offset_bottom = 110.95996
 [node name="Label" type="Label" parent="player/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=115979706]
 layout_mode = 2
 text = "YOU WERE CAUGHT
- BY THE GUARDS
+ BY THE GUARD
 "
 label_settings = SubResource("LabelSettings_70uel")
 
