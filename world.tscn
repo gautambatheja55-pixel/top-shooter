@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://dfr2l635winkq" path="res://compass_root.gd" id="10_ikiii"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
 [ext_resource type="PackedScene" uid="uid://dg3uf7qvdqmg6" path="res://boron_rod.tscn" id="14_70uel"]
+[ext_resource type="PackedScene" uid="uid://bucheog7foouc" path="res://static_body_2d.tscn" id="16_bc84e"]
+[ext_resource type="AudioStream" uid="uid://da8j5cl4tllr3" path="res://realdoor.mp3" id="20_26xuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(67, 64)
@@ -463,33 +465,7 @@ shape = SubResource("CircleShape2D_dwbse")
 libraries/ = SubResource("AnimationLibrary_2u3nc")
 autoplay = &"new_animation"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=241765504]
-script = ExtResource("7_pkg7o")
-
-[node name="WallCollision" type="CollisionShape2D" parent="StaticBody2D" unique_id=1440174313]
-position = Vector2(-1073.5, -206.5)
-shape = SubResource("RectangleShape2D_dwbse")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=543359799]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=842077470]
-position = Vector2(-1074, -162)
-shape = SubResource("RectangleShape2D_gbfbk")
-
-[node name="Door_image" type="Line2D" parent="StaticBody2D" unique_id=865201923]
-points = PackedVector2Array(-1073, 113, -1031, 38, -1084, -22, -1030.4838, -88.244385, -1078, -151, -1031, -220, -1087, -276, -1031, -311, -1090, -386, -1043, -446, -1043, -499, -1049, -508)
-width = 100.0
-default_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-script = ExtResource("5_036b0")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D/Door_image" unique_id=1453216659]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D/Door_image/StaticBody2D" unique_id=1724979077]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/Door_image" unique_id=450030836]
+[node name="StaticBody2D" parent="." unique_id=392450890 instance=ExtResource("16_bc84e")]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=592513264]
 position = Vector2(5959, 3399)
@@ -523,6 +499,9 @@ script = ExtResource("5_036b0")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2/Door_image/StaticBody2D" unique_id=251138586]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D2/Door_image" unique_id=341392565]
+
+[node name="DoorLock" type="AudioStreamPlayer2D" parent="StaticBody2D2" unique_id=707554939]
+stream = ExtResource("20_26xuy")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1198748677]
 position = Vector2(5079, 480)
@@ -559,6 +538,9 @@ script = ExtResource("5_036b0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D3/Door_image" unique_id=402978887]
 
+[node name="DoorLock" type="AudioStreamPlayer2D" parent="StaticBody2D3" unique_id=1394721997]
+stream = ExtResource("20_26xuy")
+
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=76233871 groups=["reactor"]]
 script = ExtResource("10_ic0uy")
 
@@ -592,7 +574,6 @@ position = Vector2(3826, 2486)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
-[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D3/Area2D" to="StaticBody2D3" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D4/SocketZone" to="StaticBody2D4" method="_on_socket_zone_body_entered"]

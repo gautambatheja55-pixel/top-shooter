@@ -5,5 +5,3 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.has_boron_rod==false:
 			body.has_boron_rod=true
 			queue_free()
-		
-		

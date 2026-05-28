@@ -60,7 +60,7 @@ func _process(delta: float)-> void:
 		var pulse= 0.3 + abs(sin(Time.get_ticks_msec() * 0.005)) * 0.4
 		danger_glow.self_modulate.a=pulse
 		
-	if total_rods==2:
+	if total_rods==3:
 		get_tree().change_scene_to_file("res://WinScene.tscn")
 		
 func _on_socket_zone_body_entered(body: Node2D) -> void:
