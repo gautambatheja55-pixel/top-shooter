@@ -9,6 +9,6 @@ In these the player wins but if he looses the consequences are different.<br>
 AI has been used to write shader code (for blurry effect on bg) and genrating text of Objective's Screen which was refined by me.
 <br>
 The Sprites used in the game are designed by Magnific (https://www.magnific.com/)
-
-
+<br>
+Play the game here- https://gautam55.itch.io/nuclearavoid
 
