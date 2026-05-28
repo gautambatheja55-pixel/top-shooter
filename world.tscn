@@ -9,15 +9,14 @@
 [ext_resource type="Shader" uid="uid://cni0urpc3osbx" path="res://world.gdshader" id="5_hiqwa"]
 [ext_resource type="AudioStream" uid="uid://3pcbb3bn6tjo" path="res://leberch-cyberpunk-suspense-375260.mp3" id="5_ikiii"]
 [ext_resource type="AudioStream" uid="uid://c4qjnxg658h0i" path="res://dragon-studio-clock-ticking-down-376897.mp3" id="6_cbp6q"]
-[ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="6_pkg7o"]
 [ext_resource type="AudioStream" uid="uid://dc52a8ywxpikk" path="res://main_alarm.mp3" id="7_cbp6q"]
 [ext_resource type="Script" uid="uid://b8i6t4fanblpn" path="res://static_body_2d.gd" id="7_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://dsd863oi6s3is" path="res://background-removed-background-removed.png" id="8_ikiii"]
 [ext_resource type="FontFile" uid="uid://curkdqvsswy74" path="res://PixelOperator8-Bold.ttf" id="9_ioo17"]
-[ext_resource type="Texture2D" uid="uid://dfwuq7u8ddece" path="res://3d-battery-icon-full-charge-indicator-blue-circle.png" id="10_70uel"]
 [ext_resource type="Script" uid="uid://bucvo1ryjpqtw" path="res://static_body_2d_4.gd" id="10_ic0uy"]
 [ext_resource type="Script" uid="uid://dfr2l635winkq" path="res://compass_root.gd" id="10_ikiii"]
 [ext_resource type="Texture2D" uid="uid://l3ikdk7u408a" path="res://grunge-bars-background.jpg" id="10_wse8f"]
+[ext_resource type="PackedScene" uid="uid://cd48okku1w87g" path="res://key.tscn" id="14_26xuy"]
 [ext_resource type="PackedScene" uid="uid://dg3uf7qvdqmg6" path="res://boron_rod.tscn" id="14_70uel"]
 [ext_resource type="PackedScene" uid="uid://bucheog7foouc" path="res://static_body_2d.tscn" id="16_bc84e"]
 [ext_resource type="AudioStream" uid="uid://da8j5cl4tllr3" path="res://realdoor.mp3" id="20_26xuy"]
@@ -56,47 +55,6 @@ font_size = 78
 [sub_resource type="LabelSettings" id="LabelSettings_hiqwa"]
 font = ExtResource("9_ioo17")
 font_size = 100
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
-radius = 78.025635
-
-[sub_resource type="Animation" id="Animation_70uel"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-668, 745)]
-}
-
-[sub_resource type="Animation" id="Animation_hiqwa"]
-resource_name = "new_animation"
-length = 1.9666667
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.9666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-668, 745), Vector2(-668, 661), Vector2(-668, 757)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2u3nc"]
-_data = {
-&"RESET": SubResource("Animation_70uel"),
-&"new_animation": SubResource("Animation_hiqwa")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
 size = Vector2(79, 601)
@@ -449,21 +407,8 @@ position = Vector2(82, 88)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Line2D3" unique_id=815160025]
 
-[node name="Key" type="Area2D" parent="." unique_id=1437032686]
-script = ExtResource("6_pkg7o")
-
-[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1192783416]
-position = Vector2(-668, 745)
-scale = Vector2(0.11224999, 0.11224999)
-texture = ExtResource("10_70uel")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1370139688]
-position = Vector2(-665, 740)
-shape = SubResource("CircleShape2D_dwbse")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Key" unique_id=1703036344]
-libraries/ = SubResource("AnimationLibrary_2u3nc")
-autoplay = &"new_animation"
+[node name="Key" parent="." unique_id=408604260 instance=ExtResource("14_26xuy")]
+position = Vector2(6, 0)
 
 [node name="StaticBody2D" parent="." unique_id=392450890 instance=ExtResource("16_bc84e")]
 
@@ -502,6 +447,7 @@ script = ExtResource("5_036b0")
 
 [node name="DoorLock" type="AudioStreamPlayer2D" parent="StaticBody2D2" unique_id=707554939]
 stream = ExtResource("20_26xuy")
+volume_db = 5.0
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1198748677]
 position = Vector2(5079, 480)
@@ -540,6 +486,7 @@ script = ExtResource("5_036b0")
 
 [node name="DoorLock" type="AudioStreamPlayer2D" parent="StaticBody2D3" unique_id=1394721997]
 stream = ExtResource("20_26xuy")
+volume_db = 5.0
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=76233871 groups=["reactor"]]
 script = ExtResource("10_ic0uy")
@@ -573,7 +520,6 @@ position = Vector2(-1765, 2481)
 position = Vector2(3826, 2486)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D3/Area2D" to="StaticBody2D3" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D4/SocketZone" to="StaticBody2D4" method="_on_socket_zone_body_entered"]

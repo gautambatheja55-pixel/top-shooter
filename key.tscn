@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cd48okku1w87g"]
+
+[ext_resource type="Script" uid="uid://drvipol3jcn46" path="res://key.gd" id="1_p0yg6"]
+[ext_resource type="Texture2D" uid="uid://dfwuq7u8ddece" path="res://3d-battery-icon-full-charge-indicator-blue-circle.png" id="2_krfvd"]
+[ext_resource type="AudioStream" path="res://realpickup.mp3" id="3_krfvd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwbse"]
+radius = 78.025635
+
+[sub_resource type="Animation" id="Animation_70uel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-668, 745)]
+}
+
+[sub_resource type="Animation" id="Animation_hiqwa"]
+resource_name = "new_animation"
+length = 1.9666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-668, 745), Vector2(-668, 661), Vector2(-668, 757)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2u3nc"]
+_data = {
+&"RESET": SubResource("Animation_70uel"),
+&"new_animation": SubResource("Animation_hiqwa")
+}
+
+[node name="Key" type="Area2D" unique_id=408604260]
+script = ExtResource("1_p0yg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592285382]
+position = Vector2(-668, 745)
+scale = Vector2(0.11224999, 0.11224999)
+texture = ExtResource("2_krfvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=453342471]
+position = Vector2(-665, 740)
+shape = SubResource("CircleShape2D_dwbse")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429176742]
+libraries/ = SubResource("AnimationLibrary_2u3nc")
+autoplay = &"new_animation"
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="." unique_id=1347091059]
+stream = ExtResource("3_krfvd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
