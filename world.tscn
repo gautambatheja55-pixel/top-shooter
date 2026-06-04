@@ -56,6 +56,9 @@ font_size = 78
 font = ExtResource("9_ioo17")
 font_size = 100
 
+[sub_resource type="LabelSettings" id="LabelSettings_26xuy"]
+font_size = 40
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
 size = Vector2(79, 601)
 
@@ -250,6 +253,24 @@ script = ExtResource("10_ikiii")
 position = Vector2(46, 10)
 scale = Vector2(0.057799976, 0.06398022)
 texture = ExtResource("8_ikiii")
+
+[node name="BoronLabel" type="Label" parent="player/CanvasLayer" unique_id=921350732]
+visible = false
+offset_left = 11.0
+offset_top = 195.0
+offset_right = 1150.0
+offset_bottom = 374.0
+text = "Can't pick up more than one rod at a time"
+label_settings = SubResource("LabelSettings_26xuy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="player/CanvasLayer/BoronLabel" unique_id=2076534411]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="player/CanvasLayer/BoronLabel" unique_id=455313223]
+wait_time = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650889751]
 modulate = Color(0.7369551, 0.21426824, 0.27302933, 1)
@@ -520,6 +541,8 @@ position = Vector2(-1765, 2481)
 position = Vector2(3826, 2486)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="player/CanvasLayer/BoronLabel/Timer" to="BoronRod" method="_on_timer_timeout"]
+[connection signal="timeout" from="player/CanvasLayer/BoronLabel/Timer2" to="BoronRod" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D3/Area2D" to="StaticBody2D3" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D4/SocketZone" to="StaticBody2D4" method="_on_socket_zone_body_entered"]
